@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Oxide.Plugins
 {
     [Info("Auto Flip Drones", "WhiteThunder", "1.0.0")]
-    [Description("Automatically flips upside-down drones when a player takes control.")]
+    [Description("Automatically flips upside-down RC drones when a player takes control of them at a computer station.")]
     internal class AutoFlipDrones : CovalencePlugin
     {
         private const string PermissionUse = "autoflipdrones.use";
