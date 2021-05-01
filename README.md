@@ -6,14 +6,6 @@
 
 - `autoflipdrones.use` -- Players with this permission can auto flip an upside-down drone by taking control of it at a computer station.
 
-## Recommended compatible plugins
-
-- [Drone Hover](https://umod.org/plugins/drone-hover) -- Allows RC drones to hover in place while not being controlled.
-- [Drone Lights](https://umod.org/plugins/drone-lights) -- Adds controllable search lights to RC drones.
-- [Drone Storage](https://umod.org/plugins/drone-storage) -- Allows players to deploy a small stash to RC drones.
-- [Drone Turrets](https://umod.org/plugins/drone-turrets) -- Allows players to deploy auto turrets to RC drones.
-- [RC Identifier Fix](https://umod.org/plugins/rc-identifier-fix) -- Auto updates RC identifiers saved in computer stations to refer to the correct entity.
-
 ## FAQ
 
 #### How do I get a drone?
@@ -25,6 +17,15 @@ As of this writing (March 2021), RC drones are a deployable item named `drone`, 
 If a player has building privilege, they can pull out a hammer and set the ID of the drone. They can then enter that ID at a computer station and select it to start controlling the drone. Controls are `W`/`A`/`S`/`D` to move, `shift` (sprint) to go up, `ctrl` (duck) to go down, and mouse to steer.
 
 Note: If you are unable to steer the drone, that is likely because you have a plugin drawing a UI that is grabbing the mouse cursor. The Movable CCTV was previously guilty of this and was patched in March 2021.
+
+## Recommended compatible plugins
+
+- [Drone Hover](https://umod.org/plugins/drone-hover) -- Allows RC drones to hover in place while not being controlled.
+- [Drone Lights](https://umod.org/plugins/drone-lights) -- Adds controllable search lights to RC drones.
+- [Drone Storage](https://umod.org/plugins/drone-storage) -- Allows players to deploy a small stash to RC drones.
+- [Drone Turrets](https://umod.org/plugins/drone-turrets) -- Allows players to deploy auto turrets to RC drones.
+- [Drone Effects](https://umod.org/plugins/drone-effects) -- Adds collision effects and propeller animations to RC drones.
+- [RC Identifier Fix](https://umod.org/plugins/rc-identifier-fix) -- Auto updates RC identifiers saved in computer stations to refer to the correct entity.
 
 ## Developer Hooks
 
