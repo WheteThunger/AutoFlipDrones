@@ -33,5 +33,5 @@ Drone attachments:
 - Returning `null` will result in the default behavior
 
 ```csharp
-bool? OnDroneAutoFlip(Drone drone, BasePlayer controller)
+object OnDroneAutoFlip(Drone drone, BasePlayer controller)
 ```

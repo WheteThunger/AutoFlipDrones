@@ -1,5 +1,4 @@
 ﻿using Oxide.Core;
-using Oxide.Core.Plugins;
 using UnityEngine;
 
 namespace Oxide.Plugins
@@ -8,9 +7,6 @@ namespace Oxide.Plugins
     [Description("Automatically flips upside-down RC drones when hit with a hammer or taken control of at a computer station.")]
     internal class AutoFlipDrones : CovalencePlugin
     {
-        [PluginReference]
-        private Plugin DroneScaleManager;
-
         private const string PermissionUse = "autoflipdrones.use";
 
         private void Init()
@@ -34,15 +30,7 @@ namespace Oxide.Plugins
 
         private bool AutoFlipWasBlocked(Drone drone, BasePlayer player)
         {
-            object hookResult = Interface.CallHook("OnDroneAutoFlip", drone, player);
-            return hookResult is bool && (bool)hookResult == false;
-        }
-
-        private BaseEntity GetRootEntity(Drone drone)
-        {
-            return drone.HasParent()
-                ? DroneScaleManager?.Call("API_GetRootEntity", drone) as BaseEntity ?? drone
-                : drone;
+            return Interface.CallHook("OnDroneAutoFlip", drone, player) is false;
         }
 
         private void MaybeFlipDrone(BasePlayer player, Drone drone)
@@ -50,21 +38,15 @@ namespace Oxide.Plugins
             if (!permission.UserHasPermission(player.UserIDString, PermissionUse))
                 return;
 
-            var rootEntity = GetRootEntity(drone);
-            var rootTransform = rootEntity.transform;
+            var droneTransform = drone.transform;
 
-            if (Vector3.Dot(Vector3.up, rootTransform.up) > 0.1f)
+            if (Vector3.Dot(Vector3.up, droneTransform.up) > 0.1f)
                 return;
 
             if (AutoFlipWasBlocked(drone, player))
                 return;
 
-            if (drone != rootEntity)
-            {
-                // Special handling for resized drones.
-                rootTransform.position -= rootTransform.InverseTransformPoint(drone.transform.position) * 2;
-            }
-            rootTransform.rotation = Quaternion.identity;
+            droneTransform.rotation = Quaternion.identity;
         }
     }
 }
